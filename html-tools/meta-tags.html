@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBox - Generador de Meta Tags</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="../files-sources/logo_bg.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-900 antialiased">
+    <div class="flex flex-col items-center justify-center text-black mt-10 py-10">
+        <div class="flex items-center mb-4">
+            <a href="../index.html"><img src="../files-sources/logo_bg.png" alt="CodeBox Logo" class="w-32 h-32 mr-3"></a>
+            <a href="../index.html"><h1 class="text-6xl font-extrabold text-gray-800">CodeBox</h1></a>
+        </div>
+    </div>
+    <hr class="mt-5">
+    <div class="bg-white p-6 rounded-lg shadow-lg mt-6 max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 text-center">Generador de Meta Tags</h2>
+        <div class="mb-4">
+            <label for="pageTitle" class="block text-lg font-semibold mb-2">Título de la página</label>
+            <input type="text" id="pageTitle" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Introduce el título de la página...">
+        </div>
+        <div class="mb-4">
+            <label for="pageDescription" class="block text-lg font-semibold mb-2">Descripción</label>
+            <textarea id="pageDescription" class="w-full h-24 p-2 border border-gray-300 rounded-md" placeholder="Introduce una descripción para SEO..."></textarea>
+        </div>
+        <div class="mb-4">
+            <label for="pageKeywords" class="block text-lg font-semibold mb-2">Palabras clave (separadas por comas)</label>
+            <input type="text" id="pageKeywords" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Palabras clave separadas por comas...">
+        </div>
+        <div class="mb-4">
+            <label for="pageAuthor" class="block text-lg font-semibold mb-2">Autor</label>
+            <input type="text" id="pageAuthor" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Nombre del autor...">
+        </div>
+        <div class="mb-4">
+            <label for="viewport" class="block text-lg font-semibold mb-2">Viewport</label>
+            <input type="text" id="viewport" class="w-full p-2 border border-gray-300 rounded-md" value="width=device-width, initial-scale=1.0" placeholder="Viewport...">
+        </div>
+        <div class="mb-4">
+            <h3 class="block text-lg font-semibold mb-2">Meta Tags Generados</h3>
+            <pre id="metaTagResult" class="w-full p-4 border border-gray-300 rounded-md bg-gray-100 h-40 overflow-auto"></pre>
+        </div>
+        <div class="flex justify-center space-x-4">
+            <button id="generateButton" class="btn-generate bg-blue-600 text-white px-6 py-3 rounded-md text-lg">Generar Meta Tags</button>
+            <button id="clearButton" class="btn-clear bg-red-500 text-white px-6 py-3 rounded-md text-lg"><i class="fas fa-trash-can"></i> Limpiar Campos</button>
+        </div>
+    </div>
+    <hr class="mt-10">
+    <footer class="text-center lg:text-left m-3">
+        <div class="p-4 text-center text-surface">
+            <p>&copy; 2024 CodeBox.</p>
+            <p><a href="https://github.com/LuigiValentino/Codebox">Github</a> | <a href="about.html">Sobre CodeBox</a></p>
+        </div>
+    </footer>
+    <script src="../js/meta-tags.js"></script>
+    <style>
+        .btn-clear {
+            background-color: #E11D48;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-clear:hover {
+            background-color: #F43F5E; 
+        }
+        .btn-generate {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-generate:hover {
+            background-color: #3b82f6; 
+        }
+        pre {
+            white-space: pre-wrap;
+        }
+    </style>
+</body>
+</html>

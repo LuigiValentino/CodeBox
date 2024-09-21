@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBox - Compresor de Imágenes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="../files-sources/logo_bg.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-900 antialiased">
+    <div class="flex flex-col items-center justify-center text-black mt-10 py-10">
+        <div class="flex items-center mb-4">
+            <a href="../index.html"><img src="../files-sources/logo_bg.png" alt="CodeBox Logo" class="w-32 h-32 mr-3"></a>
+            <a href="../index.html"><h1 class="text-6xl font-extrabold text-gray-800">CodeBox</h1></a>
+        </div>
+    </div>
+    <hr class="mt-5">
+    <div class="bg-white p-6 rounded-lg shadow-lg mt-6 max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 text-center">Compresor de Imágenes</h2>
+        <div class="mb-4">
+            <label for="fileInput" class="block text-lg font-semibold mb-2">Sube tu imagen</label>
+            <input type="file" id="fileInput" class="w-full p-2 border border-gray-300 rounded-md" accept="image/*">
+        </div>
+        <div class="mb-4">
+            <label for="quality" class="block text-lg font-semibold mb-2">Nivel de compresión (Calidad)</label>
+            <input type="range" id="quality" min="10" max="100" value="80" class="w-full">
+            <p id="qualityValue" class="text-center mt-2">Calidad: 80%</p>
+        </div>
+        <div class="mb-4 text-center">
+            <h3 class="block text-lg font-semibold mb-2">Vista Previa de la Imagen Comprimida</h3>
+            <canvas id="imageCanvas" class="mx-auto"></canvas>
+        </div>
+        <div class="flex justify-center">
+            <button id="downloadButton" class="btn-download bg-green-500 text-white px-6 py-3 rounded-md text-lg hidden">Descargar Imagen <i class="fas fa-download"></i></button>
+        </div>
+    </div>
+    <hr class="mt-10">
+    <footer class="text-center lg:text-left m-3">
+        <div class="p-4 text-center text-surface">
+            <p>&copy; 2024 CodeBox.</p>
+            <p><a href="https://github.com/LuigiValentino/Codebox">Github</a> | <a href="about.html">Sobre CodeBox</a></p>
+        </div>
+    </footer>
+    <script src="../js/image-compressor.js"></script>
+    <style>
+        .btn-download {
+            background-color: #10b981; 
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-download:hover {
+            background-color: #34d399; 
+        }
+        #imageCanvas {
+            max-width: 100%;
+            max-height: 400px;
+        }
+    </style>
+</body>
+</html>

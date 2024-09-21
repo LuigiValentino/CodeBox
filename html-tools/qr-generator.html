@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBox - Generador de Código QR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="../files-sources/logo_bg.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-900 antialiased">
+    <div class="flex flex-col items-center justify-center text-black mt-10 py-10">
+        <div class="flex items-center mb-4">
+            <a href="../index.html"><img src="../files-sources/logo_bg.png" alt="CodeBox Logo" class="w-32 h-32 mr-3"></a>
+            <a href="../index.html"><h1 class="text-6xl font-extrabold text-gray-800">CodeBox</h1></a>
+        </div>
+    </div>
+    <hr class="mt-5">
+    <div class="bg-white p-6 rounded-lg shadow-lg mt-6 max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 text-center">Generador de Código QR</h2>
+        <div class="mb-4">
+            <label for="qrType" class="block text-lg font-semibold mb-2">Selecciona el tipo de entrada</label>
+            <select id="qrType" class="w-full p-2 border border-gray-300 rounded-md">
+                <option value="url">URL</option>
+                <option value="text">Texto</option>
+                <option value="wifi">WiFi</option>
+            </select>
+        </div>
+        <div class="mb-4" id="qrTextInputContainer">
+            <label for="qrTextInput" class="block text-lg font-semibold mb-2">Introduce el texto o URL</label>
+            <input type="text" id="qrTextInput" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Introduce la URL o el texto...">
+        </div>
+        <div class="mb-4 hidden" id="qrWifiInputContainer">
+            <label for="wifiSSID" class="block text-lg font-semibold mb-2">Nombre de la Red (SSID)</label>
+            <input type="text" id="wifiSSID" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Introduce el SSID...">
+
+            <label for="wifiPassword" class="block text-lg font-semibold mt-4 mb-2">Contraseña de la Red</label>
+            <input type="text" id="wifiPassword" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Introduce la contraseña...">
+
+            <label for="wifiEncryption" class="block text-lg font-semibold mt-4 mb-2">Encriptación</label>
+            <select id="wifiEncryption" class="w-full p-2 border border-gray-300 rounded-md">
+                <option value="WPA">WPA/WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="none">Sin encriptación</option>
+            </select>
+        </div>
+        <div class="mb-4 text-center">
+            <h3 class="block text-lg font-semibold mb-2">Código QR Generado</h3>
+            <canvas id="qrCanvas" class="mx-auto"></canvas>
+        </div>
+        <div class="flex justify-center space-x-4">
+            <button id="generateButton" class="btn-generate bg-blue-600 text-white px-6 py-3 rounded-md text-lg">Generar Código QR</button>
+            <button id="downloadButton" class="btn-download bg-green-500 text-white px-6 py-3 rounded-md text-lg hidden">Descargar</button>
+        </div>
+    </div>
+    <hr class="mt-10">
+    <footer class="text-center lg:text-left m-3">
+        <div class="p-4 text-center text-surface">
+            <p>&copy; 2024 CodeBox.</p>
+            <p><a href="https://github.com/LuigiValentino/Codebox">Github</a> | <a href="about.html">Sobre CodeBox</a></p>
+        </div>
+    </footer>
+    <script src="../js/qr-generator.js"></script>
+    <style>
+        .btn-generate {
+            background-color: #2563eb;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-generate:hover {
+            background-color: #3b82f6;
+        }
+        .btn-download {
+            background-color: #10b981; 
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-download:hover {
+            background-color: #34d399; 
+        }
+    </style>
+</body>
+</html>

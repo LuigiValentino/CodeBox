@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBox - Herramientas de Color</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="../files-sources/logo_bg.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-gradient-to-r from-gray-100 to-gray-200 text-gray-900 antialiased">
+    <div class="flex flex-col items-center justify-center text-black mt-10 py-10">
+        <div class="flex items-center mb-4">
+            <a href="../index.html"><img src="../files-sources/logo_bg.png" alt="CodeBox Logo"
+                    class="w-32 h-32 mr-3"></a>
+            <a href="../index.html">
+                <h1 class="text-6xl font-extrabold text-gray-800">CodeBox</h1>
+            </a>
+        </div>
+    </div>
+    <hr class="mt-5">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 p-8 max-w-7xl mx-auto">
+        <div class="bg-white p-8 rounded-lg shadow-lg col-span-2 md:col-span-3 lg:col-span-4">
+            <h2 class="text-4xl font-bold mb-6 text-center">Convertidor de Colores</h2>
+            <form id="colorConverter" class="space-y-6">
+                <div>
+                    <label for="rgb" class="block text-sm font-medium text-gray-700">RGB</label>
+                    <input type="text" id="rgb" placeholder="Ejemplo: 255, 255, 255"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3">
+                </div>
+                <div>
+                    <label for="hex" class="block text-sm font-medium text-gray-700">HEX</label>
+                    <input type="text" id="hex" placeholder="Ejemplo: #FFFFFF"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3">
+                </div>
+                <div>
+                    <label for="hsl" class="block text-sm font-medium text-gray-700">HSL</label>
+                    <input type="text" id="hsl" placeholder="Ejemplo: hsl(0, 0%, 100%)"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3">
+                </div>
+                <div>
+                    <label for="cmyk" class="block text-sm font-medium text-gray-700">CMYK</label>
+                    <input type="text" id="cmyk" placeholder="Ejemplo: 0%, 0%, 0%, 0%"
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-3">
+                </div>
+                <div class="text-center mt-6">
+                    <button type="button" onclick="convertColors()" class="bg-blue-600 text-white px-6 py-3 rounded-md text-lg">Convertir</button>
+                </div>
+            </form>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg col-span-1 md:col-span-1 lg:col-span-2">
+            <h2 class="text-4xl font-bold mb-6 text-center">Selector de Color</h2>
+            <input type="color" id="colorPicker" class="block mx-auto h-20 w-20 rounded-full shadow-lg">
+            <p class="text-center mt-6 text-xl">Color Seleccionado: <span id="selectedColor">#FFFFFF</span></p>
+            <div class="mt-8 space-y-4">
+                <p>RGB: <span id="selectedColorRGB"></span></p>
+                <p>RGBA: <span id="selectedColorRGBA"></span></p>
+                <p>HEX: <span id="selectedColorHex"></span></p>
+                <p>HSL: <span id="selectedColorHSL"></span></p>
+                <p>CMYK: <span id="selectedColorCMYK"></span></p>
+            </div>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg col-span-3 md:col-span-3 lg:col-span-6">
+            <h2 class="text-4xl font-bold mb-6 text-center">Detalles del Color Seleccionado</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-3">Color Complementario</h3>
+                    <div id="complementaryColor" class="flex items-center justify-center h-16 w-full rounded-lg border text-center font-semibold"></div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-3">Sombras (Shades)</h3>
+                    <div id="shades" class="grid grid-cols-1 gap-2"></div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-3">Tonos (Tints)</h3>
+                    <div id="tints" class="grid grid-cols-1 gap-2"></div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-3">Colores Análogos</h3>
+                    <div id="analogousColors" class="grid grid-cols-1 gap-2"></div>
+                </div>
+                <div class="bg-white p-2 rounded-lg  col-span-1 md:col-span-1 lg:col-span-3">
+                    <h2 class="text-4xl font-bold mb-6 text-center">Inversión de Color</h2>
+                    <div id="invertedColor" class="flex items-center justify-center h-16 w-full rounded-lg border text-center font-semibold"></div>
+                </div>
+                <div class="bg-white p-2 rounded-lg  col-span-1 md:col-span-1 lg:col-span-3">
+                    <h2 class="text-4xl font-bold mb-6 text-center">Simulación de Daltonismo</h2>
+                    <div id="colorBlindSim" class="flex items-center justify-center h-16 w-full rounded-lg border text-center font-semibold"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="mt-10">
+    <footer class="text-center lg:text-left m-3">
+        <div class="p-4 text-center text-surface">
+            <p>&copy; 2024 CodeBox.</p>
+            <p><a href="https://github.com/LuigiValentino/Codebox">Github</a> | <a href="about.html">Sobre CodeBox</a></p>
+        </div>
+    </footer>
+    <script src="../js/color.js"></script>
+</body>
+</html>
